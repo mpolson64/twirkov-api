@@ -1,0 +1,28 @@
+{
+  "name": "twirkov-api",
+  "version": "0.0.1",
+  "description": "A RESTful API used to create nth-order Markov chains based on the past tweets from a given Twitter handle. These chains can be used to perform analysis on users or to procedurally generate tweets in their \"tweeting-stule\"",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpolson64/twirkov-api.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/mpolson64/twirkov-api/issues"
+  },
+  "homepage": "https://github.com/mpolson64/twirkov-api#readme",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  }
+}
