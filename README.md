@@ -5,12 +5,14 @@ A RESTful API used to create n<sup>th</sup>-order Markov chains based on the pas
 ### GET chain
 Returns a Markov chain object based on a user's recent tweets.
 #### Resource Information
-|Resource URL|https://twirkov-api.herokuapp.com/api/chain|
-|Response format|JSON|
+|Information    |Name                                           |
+|---------------|-----------------------------------------------|
+|Resource URL   |https://twirkov-api.herokuapp.com/api/chain    |
+|Response format|JSON                                           |
 #### Parameters
-|Name|Required|Description|Default Value|Example|
-|----|--------|-----------|-------------|-------|
-|screen_name|optional|The screen name of the user for whom to return results|*jack*|*mpolson64*|
-|order|optional|The order of the Markov chain to be returned|*1*|*4*|
+|Name       |Required   |Description                                            |Default Value  |Example    |
+|-----------|-----------|-------------------------------------------------------|---------------|-----------|
+|screen_name|optional   |The screen name of the user for whom to return results |*jack*         |*mpolson64*|
+|order      |optional   |The order of the Markov chain to be returned           |*1*            |*4*        |
 #### Example Request
-*GET https://twirkov-api.herokuapp.com/api/chain?screen_name=davidleebron&order=2
+*GET https://twirkov-api.herokuapp.com/api/chain?screen_name=davidleebron&order=2*
