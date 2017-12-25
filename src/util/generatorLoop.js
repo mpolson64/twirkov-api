@@ -1,4 +1,4 @@
-const feedforward = require('../src/util/feedforward');
+const feedforward = require('./feedforward');
 
 module.exports = (chain, seeds) => {
     words = [];
