@@ -1,4 +1,4 @@
-const mapToObject = (map) => {
+const chainToObject = (map) => {
     const out = [];
 
     map.forEach((item, key) => {
@@ -13,4 +13,4 @@ const mapToObject = (map) => {
     return out;
 }
 
-module.exports = mapToObject;
+module.exports = chainToObject;
