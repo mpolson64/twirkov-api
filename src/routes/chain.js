@@ -1,6 +1,6 @@
 const markovChain = require('../util/markovChain');
 const unionChains = require('../util/unionChains');
-const mapToObject = require('../util/mapToObject');
+const chainToObject = require('../util/chainToObject');
 
 const express = require('express');
 const OAuth = require('oauth');
@@ -44,7 +44,7 @@ router.get('/', (req, res) => {
                     perTweetChains.push(markovChain(input, req.query.order || 1));
                 });
 
-                res.status(200).send(mapToObject(perTweetChains.reduce(unionChains)));
+                res.status(200).send(chainToObject(perTweetChains.reduce(unionChains)));
             }
         }
     );

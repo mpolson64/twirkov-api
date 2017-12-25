@@ -1,12 +1,12 @@
 const mapToObject = (map) => {
-    const out = Object.create(null);
+    const out = [];
 
     map.forEach((item, key) => {
         if(item instanceof Map) {
-            out[key] = mapToObject(item);
+            out.push([key, mapToObject(item)]);
         }
         else {
-            out[key] = item;
+            out.push([key, item]);
         }
     });
 
