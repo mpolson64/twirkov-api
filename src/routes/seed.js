@@ -25,22 +25,36 @@ router.get('/', (req, res) => {
                 res.status(twitterErr.statusCode).send(twitterErr);
             }
             else {
-                var firstWords = [];
+                var seeds = [];
 
                 JSON.parse(twitterData).forEach((tweet) => {
                     var input = tweet.text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');  //Remove URLs
                     while(input[0] === '@') {       //Remove leading @handles
                         input = input.substr(input.indexOf(' ') + 1);
                     }
-                    input = input.trim();
-                    input = input.substr(0, input.indexOf(" "));
-                    if(input.length > 0) {
-                        input = input.toLowerCase();
-                        firstWords.push(input);
+
+                    var input = input.trim();
+                    var seed = "";
+
+                    for(let i = 0; i < parseInt(req.query.order) || 1; i++) {
+                        var word = input.substr(0, input.indexOf(" "));
+                        input = input.substr(input.indexOf(' ')).trim();
+                        if(word.length > 0) {
+                            word = word.toLowerCase();
+
+                            if(seed === "") {
+                                seed = word;
+                            }
+                            else {
+                                seed += '|' + word;
+                            }
+                        }
                     }
+
+                    seeds.push(seed);
                 });
 
-                res.status(200).send(firstWords);
+                res.status(200).send(seeds);
             }
         }
     );
