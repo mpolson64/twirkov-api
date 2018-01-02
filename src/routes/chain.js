@@ -41,7 +41,7 @@ router.get('/', (req, res) => {
                     input = input.concat(' ||');    //Add ending sequence
                     input = input.split(' ');       //Split into array along spaces
 
-                    perTweetChains.push(markovChain(input, req.query.order || 1));
+                    perTweetChains.push(markovChain(input, parseInt(req.query.order) || 1));
                 });
 
                 res.status(200).send(chainToObject(perTweetChains.reduce(unionChains)));

@@ -4,7 +4,7 @@ module.exports = (data, order) => {
     model = new Map();
 
     if(data.length < order + 1) {
-        return model
+        return model;
     }
 
     current = data.slice(0, order);

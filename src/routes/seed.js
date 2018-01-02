@@ -36,7 +36,6 @@ router.get('/', (req, res) => {
                     input = input.substr(0, input.indexOf(" "));
                     if(input.length > 0) {
                         input = input.toLowerCase();
-                        console.log(input);
                         firstWords.push(input);
                     }
                 });
