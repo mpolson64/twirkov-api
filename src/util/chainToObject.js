@@ -1,16 +1,15 @@
 const chainToObject = (map) => {
-    const out = [];
+  const obj = [];
 
-    map.forEach((item, key) => {
-        if(item instanceof Map) {
-            out.push([key, chainToObject(item)]);
-        }
-        else {
-            out.push([key, item]);
-        }
-    });
+  map.forEach((item, key) => {
+    if (item instanceof Map) {
+      obj.push([key, chainToObject(item)]);
+    } else {
+      obj.push([key, item]);
+    }
+  });
 
-    return out;
-}
+  return obj;
+};
 
 module.exports = chainToObject;

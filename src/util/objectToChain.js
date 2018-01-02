@@ -1,9 +1,9 @@
 module.exports = (obj) => {
-    const out = new Map();
+  const chain = new Map();
 
-    obj.forEach((element) => {
-        out.set(element[0], new Map(element[1]));
-    });
+  obj.forEach((element) => {
+    chain.set(element[0], new Map(element[1]));
+  });
 
-    return out;
-}
+  return chain;
+};

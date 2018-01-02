@@ -1,32 +1,31 @@
 const normalizeModel = require('./normalizeModel');
 
 module.exports = (data, order) => {
-    model = new Map();
+  const model = new Map();
 
-    if(data.length < order + 1) {
-        return model;
+  if (data.length < order + 1) {
+    return model;
+  }
+
+  let current = data.slice(0, order);
+
+  data.slice(order).forEach((element) => {
+    const currentKey = current.join('|');
+
+    if (!model.has(currentKey)) {
+      model.set(currentKey, new Map());
     }
 
-    current = data.slice(0, order);
+    if (!model.get(currentKey).has(element)) {
+      model.get(currentKey).set(element, 0);
+    }
 
-    data.slice(order).forEach((element) => {
-        currentKey = current.join("|");
+    model.get(currentKey).set(element, model.get(currentKey).get(element) + 1);
 
-        if(!model.has(currentKey)) {
-            model.set(currentKey, new Map());
-        }
+    current = current.slice(1);
+    current = current.concat([element]);
+  });
 
-        if(!model.get(currentKey).has(element)) {
-            model.get(currentKey).set(element, 0);
-        }
-
-        model.get(currentKey).set(element, model.get(currentKey).get(element) + 1);
-
-        current = current.slice(1);
-        current = current.concat([element]);
-    });
-
-    return(normalizeModel(model));
-}
-
+  return (normalizeModel(model));
+};
 

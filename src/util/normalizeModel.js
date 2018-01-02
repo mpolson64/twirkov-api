@@ -1,19 +1,17 @@
 module.exports = (model) => {
-    chain = new Map();
+  const chain = new Map();
 
-    model.forEach((map, key) => {
-        total = Array.from(map.values()).reduce((total, num) => {
-            return(total + num);
-        });
+  model.forEach((map, key) => {
+    const total = Array.from(map.values()).reduce((sum, num) => (sum + num));
 
-        normalizedMap = new Map();
+    const normalizedMap = new Map();
 
-        map.forEach((occurance, word) => {
-            normalizedMap.set(word, occurance / total);
-        });
-
-        chain.set(key, normalizedMap);
+    map.forEach((occurance, word) => {
+      normalizedMap.set(word, occurance / total);
     });
 
-    return(chain);
-}
+    chain.set(key, normalizedMap);
+  });
+
+  return (chain);
+};

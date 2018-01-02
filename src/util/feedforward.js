@@ -1,15 +1,17 @@
 module.exports = (probabilityMap) => {
-    let roll = Math.random();
-    let s = 0;
+  const roll = Math.random();
+  let s = 0;
 
-    let items = Array.from(probabilityMap.values());
-    let keys = Array.from(probabilityMap.keys());
+  const items = Array.from(probabilityMap.values());
+  const keys = Array.from(probabilityMap.keys());
 
-    for(let i = 0; i < probabilityMap.size; i++) {
-        s += items[i];
+  for (let i = 0; i < probabilityMap.size; i += 1) {
+    s += items[i];
 
-        if(s > roll) {
-            return(keys[i]);
-        }
+    if (s > roll) {
+      return (keys[i]);
     }
-}
+  }
+
+  return -1;
+};
