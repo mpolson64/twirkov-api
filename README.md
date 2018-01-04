@@ -30,4 +30,4 @@ Returns an array of the first words of a user's recent tweets
 |screen_name|optional   |The screen name of the user for whom to return results                                       |*jack*         |*mpolson64*|
 |order      |optional   |The number of words in each key, the order of the chain the seed is intended to be used with |*1*            |4          |
 #### Example Request
-*GET https://twirkov-api.herokuapp.com/api/seed?screen_name=davidleebron&order=2*
+*GET https://twirkov-api.herokuapp.com/api/seed?screen_name=davidleebron*
