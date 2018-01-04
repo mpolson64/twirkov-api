@@ -1,4 +1,4 @@
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 const express = require('express');
 const morgan = require('morgan');
@@ -14,6 +14,6 @@ app.use(cors());
 app.use('/api/chain', chainRoute);
 app.use('/api/seed', seedRoute);
 
-const server = app.listen(port, () => {
+app.listen(port, () => {
   console.log(`twirkov-api listening on port ${port}`);
 });
