@@ -18,6 +18,9 @@
     "url": "https://github.com/mpolson64/twirkov-api/issues"
   },
   "homepage": "https://github.com/mpolson64/twirkov-api#readme",
+  "engines": {
+    "node": "8.9.1"
+  },
   "dependencies": {
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
