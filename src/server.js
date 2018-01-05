@@ -14,6 +14,4 @@ app.use(cors());
 app.use('/api/chain', chainRoute);
 app.use('/api/seed', seedRoute);
 
-app.listen(port, () => {
-  console.log(`twirkov-api listening on port ${port}`);
-});
+app.listen(port);
