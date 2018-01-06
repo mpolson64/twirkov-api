@@ -29,14 +29,16 @@ router.get('/', (req, res) => {
 
         JSON.parse(twitterData).forEach((tweet) => {
           let input = tweet.text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, ''); // Remove URLs
+
           while (input[0] === '@') { // Remove leading @handles
             input = input.substr(input.indexOf(' ') + 1);
           }
 
           input = input.trim();
+
           let seed = '';
 
-          for (let i = 0; i < parseInt(req.query.order, 10) || 1; i += 1) {
+          for (let i = 0; i < (parseInt(req.query.order, 10) || 1); i += 1) {
             let word = input.substr(0, input.indexOf(' '));
             input = input.substr(input.indexOf(' ')).trim();
             if (word.length > 0) {
