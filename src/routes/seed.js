@@ -51,8 +51,9 @@ router.get('/', (req, res) => {
               }
             }
           }
-
-          seeds.push(seed);
+          if (seed !== '') {
+            seeds.push(seed);
+          }
         });
 
         res.status(200).send(seeds);
